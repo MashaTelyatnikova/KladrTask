@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MashaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AltNamesTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OldCode" Type="varchar" MaxLength="19" />
+    <Property Name="NewCode" Type="varchar" MaxLength="19" />
+    <Property Name="Level" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="House">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="40" />
+    <Property Name="Korp" Type="varchar" MaxLength="10" />
+    <Property Name="Socr" Type="varchar" MaxLength="10" />
+    <Property Name="Code" Type="varchar" MaxLength="19" />
+    <Property Name="Index" Type="varchar" MaxLength="6" />
+    <Property Name="Gninmb" Type="varchar" MaxLength="4" />
+    <Property Name="Uno" Type="varchar" MaxLength="4" />
+    <Property Name="Ocatd" Type="varchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="KladrTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="40" />
+    <Property Name="Socr" Type="varchar" MaxLength="10" />
+    <Property Name="Code" Type="varchar" MaxLength="13" />
+    <Property Name="Index_" Type="varchar" MaxLength="6" />
+    <Property Name="Gninmb" Type="varchar" MaxLength="4" />
+    <Property Name="Uno" Type="varchar" MaxLength="4" />
+    <Property Name="Ocatd" Type="varchar" MaxLength="11" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="MyRegions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FulName" Type="varchar(max)" Nullable="false" />
+    <Property Name="Code" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SocrbaseTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Level" Type="varchar" MaxLength="10" />
+    <Property Name="Scname" Type="varchar" MaxLength="29" />
+    <Property Name="Kod_T_ST" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="StreetTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="40" />
+    <Property Name="Socr" Type="varchar" MaxLength="10" />
+    <Property Name="Code" Type="varchar" MaxLength="17" />
+    <Property Name="Index" Type="varchar" MaxLength="6" />
+    <Property Name="Gninmb" Type="varchar" MaxLength="4" />
+    <Property Name="Uno" Type="varchar" MaxLength="4" />
+    <Property Name="Ocatd" Type="varchar" MaxLength="11" />
+  </EntityType>
+  <EntityContainer Name="MashaModelStoreContainer">
+    <EntitySet Name="AltNamesTable" EntityType="Self.AltNamesTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="House" EntityType="Self.House" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KladrTable" EntityType="Self.KladrTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MyRegions" EntityType="Self.MyRegions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SocrbaseTable" EntityType="Self.SocrbaseTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StreetTable" EntityType="Self.StreetTable" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

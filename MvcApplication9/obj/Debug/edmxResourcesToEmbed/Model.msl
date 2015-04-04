@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MashaModelStoreContainer" CdmEntityContainer="MashaEntities">
+    <EntitySetMapping Name="AltNamesTables">
+      <EntityTypeMapping TypeName="MashaModel.AltNamesTable">
+        <MappingFragment StoreEntitySet="AltNamesTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OldCode" ColumnName="OldCode" />
+          <ScalarProperty Name="NewCode" ColumnName="NewCode" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Houses">
+      <EntityTypeMapping TypeName="MashaModel.House">
+        <MappingFragment StoreEntitySet="House">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Korp" ColumnName="Korp" />
+          <ScalarProperty Name="Socr" ColumnName="Socr" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Gninmb" ColumnName="Gninmb" />
+          <ScalarProperty Name="Uno" ColumnName="Uno" />
+          <ScalarProperty Name="Ocatd" ColumnName="Ocatd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KladrTables">
+      <EntityTypeMapping TypeName="MashaModel.KladrTable">
+        <MappingFragment StoreEntitySet="KladrTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Socr" ColumnName="Socr" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Index_" ColumnName="Index_" />
+          <ScalarProperty Name="Gninmb" ColumnName="Gninmb" />
+          <ScalarProperty Name="Uno" ColumnName="Uno" />
+          <ScalarProperty Name="Ocatd" ColumnName="Ocatd" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MyRegions">
+      <EntityTypeMapping TypeName="MashaModel.MyRegion">
+        <MappingFragment StoreEntitySet="MyRegions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FulName" ColumnName="FulName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SocrbaseTables">
+      <EntityTypeMapping TypeName="MashaModel.SocrbaseTable">
+        <MappingFragment StoreEntitySet="SocrbaseTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Scname" ColumnName="Scname" />
+          <ScalarProperty Name="Kod_T_ST" ColumnName="Kod_T_ST" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StreetTables">
+      <EntityTypeMapping TypeName="MashaModel.StreetTable">
+        <MappingFragment StoreEntitySet="StreetTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Socr" ColumnName="Socr" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Gninmb" ColumnName="Gninmb" />
+          <ScalarProperty Name="Uno" ColumnName="Uno" />
+          <ScalarProperty Name="Ocatd" ColumnName="Ocatd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

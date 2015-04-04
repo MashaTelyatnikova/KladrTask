@@ -1,0 +1,9 @@
+C:\Users\asus\Desktop\MvcApplication9\PrefixTree\bin\Debug\PrefixTree.dll
+C:\Users\asus\Desktop\MvcApplication9\PrefixTree\bin\Debug\PrefixTree.pdb
+C:\Users\asus\Desktop\MvcApplication9\PrefixTree\bin\Debug\KladrTask.Domain.exe
+C:\Users\asus\Desktop\MvcApplication9\PrefixTree\bin\Debug\EntityFramework.dll
+C:\Users\asus\Desktop\MvcApplication9\PrefixTree\bin\Debug\KladrTask.Domain.pdb
+C:\Users\asus\Desktop\MvcApplication9\PrefixTree\bin\Debug\EntityFramework.xml
+C:\Users\asus\Desktop\MvcApplication9\PrefixTree\obj\Debug\PrefixTree.csprojResolveAssemblyReference.cache
+C:\Users\asus\Desktop\MvcApplication9\PrefixTree\obj\Debug\PrefixTree.dll
+C:\Users\asus\Desktop\MvcApplication9\PrefixTree\obj\Debug\PrefixTree.pdb
