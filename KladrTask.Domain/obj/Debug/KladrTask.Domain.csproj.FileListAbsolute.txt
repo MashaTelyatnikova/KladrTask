@@ -1,0 +1,14 @@
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\bin\Debug\KladrTask.Domain.exe.config
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\bin\Debug\KladrTask.Domain.exe
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\bin\Debug\KladrTask.Domain.pdb
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\bin\Debug\EntityFramework.dll
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\bin\Debug\EntityFramework.xml
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\obj\Debug\KladrTask.Domain.csprojResolveAssemblyReference.cache
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\obj\Debug\KladrTask.Domain.exe
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\obj\Debug\KladrTask.Domain.pdb
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.InitialCreate.resources
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\obj\Debug\KladrTask.Domain.csproj.GenerateResource.Cache
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.StreetRenamed.resources
+C:\Users\asus\Desktop\02-fractals\KladrTask\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.StreetRenamed1.resources
