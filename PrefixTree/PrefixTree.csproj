@@ -44,8 +44,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\02-fractals\KladrTask\KladrTask.Domain\KladrTask.Domain.csproj">
-      <Project>{0594BEEF-F431-4524-81E9-7473118E0A63}</Project>
+    <ProjectReference Include="..\KladrTask.Domain\KladrTask.Domain.csproj">
+      <Project>{0594beef-f431-4524-81e9-7473118e0a63}</Project>
       <Name>KladrTask.Domain</Name>
     </ProjectReference>
   </ItemGroup>

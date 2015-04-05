@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KladrTask.Domain", "..\02-fractals\KladrTask\KladrTask.Domain\KladrTask.Domain.csproj", "{0594BEEF-F431-4524-81E9-7473118E0A63}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrefixTree", "PrefixTree\PrefixTree.csproj", "{D5439699-DB3E-4BE5-95E4-4AEC7C0EA8BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KladrTask.WebUI", "KladrTask.WebUI\KladrTask.WebUI.csproj", "{2572EF0E-AD8E-4F6F-A574-C3D5BC094062}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KladrTask.Domain", "KladrTask.Domain\KladrTask.Domain.csproj", "{0594BEEF-F431-4524-81E9-7473118E0A63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0594BEEF-F431-4524-81E9-7473118E0A63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0594BEEF-F431-4524-81E9-7473118E0A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0594BEEF-F431-4524-81E9-7473118E0A63}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0594BEEF-F431-4524-81E9-7473118E0A63}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5439699-DB3E-4BE5-95E4-4AEC7C0EA8BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5439699-DB3E-4BE5-95E4-4AEC7C0EA8BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5439699-DB3E-4BE5-95E4-4AEC7C0EA8BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{2572EF0E-AD8E-4F6F-A574-C3D5BC094062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2572EF0E-AD8E-4F6F-A574-C3D5BC094062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2572EF0E-AD8E-4F6F-A574-C3D5BC094062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0594BEEF-F431-4524-81E9-7473118E0A63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0594BEEF-F431-4524-81E9-7473118E0A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0594BEEF-F431-4524-81E9-7473118E0A63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0594BEEF-F431-4524-81E9-7473118E0A63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

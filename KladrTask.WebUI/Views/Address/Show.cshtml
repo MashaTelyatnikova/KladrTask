@@ -1,37 +1,24 @@
 ﻿@model KladrTask.WebUI.Models.AddressViewModel
 
-    @{
-        ViewBag.Title = "Show";
-    }
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
 
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <link rel="stylesheet" href="~/Content/reset.css">
-        <link rel="stylesheet" href="~/Content/animate.css">
-        <link rel="stylesheet" href="~/Content/styles.css">
-        <link rel="icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon">
-        <link rel="shortcut icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon">
-    </head>
 
-    <body>
-        <div id="container">
-            <div >
-                @Model.Region
-            </div>
-            <div>
-                @Model.Locality
-            </div>
-            <div>
-                @Model.Street
-            </div>
-            <div>
-                @Model.House
-            </div>
-            <div>
-                @Model.Index
-            </div>
-        </div>
-
-    </body>
+<div>
+    @Model.Region
+</div>
+<div>
+    @Model.Locality
+</div>
+<div>
+    @Model.Street
+</div>
+<div>
+    @Model.House
+</div>
+<div>
+    @Model.Index
+</div>

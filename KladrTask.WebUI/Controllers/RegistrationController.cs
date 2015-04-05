@@ -6,6 +6,7 @@ using PrefixTree;
 
 namespace KladrTask.WebUI.Controllers
 {
+    [Authorize]
     public class RegistrationController : Controller
     {
         private readonly DbKladrRepository kladrRepository;
