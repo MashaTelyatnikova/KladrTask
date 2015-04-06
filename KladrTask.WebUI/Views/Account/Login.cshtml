@@ -1,4 +1,5 @@
-﻿@model KladrTask.WebUI.Models.LoginViewModel
+﻿@using System.Web.Mvc.Html
+@model KladrTask.WebUI.Models.LoginViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Main.cshtml";
@@ -13,7 +14,8 @@
     <label>Пароль:</label>
     @Html.PasswordFor(m => m.Password, new{type="password"})
     <div id="lower">
-        <input type="submit" value="Войти" />
+        <input type="submit" value="Войти"/>
     </div>
-    
 }
+
+@Html.ActionLink("Зарегестрироваться", "Register", "Account")

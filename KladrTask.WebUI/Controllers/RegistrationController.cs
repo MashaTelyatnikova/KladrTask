@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using KladrTask.Domain.Concrete;
 using PrefixTree;
@@ -24,6 +25,7 @@ namespace KladrTask.WebUI.Controllers
 
         public ActionResult Index()
         {
+            //var cookie = HttpContext.User.Identity;
             var regions = GetRegions();
             ViewData["regions"] = regions;
             return View();

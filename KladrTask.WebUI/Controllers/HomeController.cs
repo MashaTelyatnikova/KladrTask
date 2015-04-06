@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace KladrTask.WebUI.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         //

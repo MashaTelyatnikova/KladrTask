@@ -12,7 +12,7 @@ namespace KladrTask.WebUI.Infrastructure
 {
     public class NinjectControllerFactory : DefaultControllerFactory
     {
-        private IKernel ninjectKernel;
+        private readonly IKernel ninjectKernel;
 
         public NinjectControllerFactory()
         {
