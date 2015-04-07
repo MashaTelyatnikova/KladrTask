@@ -92,19 +92,29 @@
     @Html.ValidationSummary()
     <label>Логин:</label>
     @Html.TextBoxFor(m => m.Login)
+    <br/>
     <label>Пароль:</label>
     @Html.PasswordFor(m => m.Password)
+    <br/>
     <label>Имя</label>
     @Html.TextBoxFor(m => m.FirstName)
+    <br/>
     <label>Фамилия</label>
     @Html.TextBoxFor(m => m.LastName)
+    <br/>
     <label>Дата рождения</label>
     @Html.EditorFor(m => m.Birthday)
     @Html.ValidationMessageFor(m => m.Birthday)
+    <br/>
+    
     @Html.DropDownListFor(m => m.RegionCode, ViewData["regions"] as List<SelectListItem>, "Выберете регион", new { id = "regions", style = "width:250px", @class = "dropdown1" })
+    <br/>
     @Html.DropDownListFor(m => m.LocalityCode, new SelectList(string.Empty, "Value", "Text"), "Выберете населенный пункт", new { id = "localities", style = "width:250px", @class = "dropdown1" })
+    <br/>
     @Html.DropDownListFor(m => m.StreetCode, new SelectList(string.Empty, "Value", "Text"), "Выберете улицу", new { id = "streets", style = "width:250px", @class = "dropdown1" })
+    <br/>
     @Html.DropDownListFor(m => m.HouseCode, new SelectList(string.Empty, "Value", "Text"), "Выберете дом", new { id = "houses", style = "width:250px", @class = "dropdown1" })
+    <br/>
     <div id="lower">
         <input type="submit" value="OK" />
     </div>

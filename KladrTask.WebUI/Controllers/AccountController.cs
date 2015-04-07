@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using KladrTask.Domain.Concrete;
@@ -12,25 +13,31 @@ namespace KladrTask.WebUI.Controllers
     {
         //
         // GET: /Account/
+        private const string SverdlovskRegionCode = "6600000000000";
         private readonly IAuthProvider provider;
         private readonly DbKladrRepository kladrRepository;
-        private readonly Tree tree;
+        private readonly Tree regionsTree;
 
         public AccountController(IAuthProvider provider)
         {
             kladrRepository = new DbKladrRepository();
-            tree = new Tree();
+            
+            regionsTree = new Tree();
+            FillRegionsTree();
 
+            this.provider = provider;
+            
+            ViewData["regions"] = GetRegions();
+        }
+
+        public void FillRegionsTree()
+        {
             foreach (var region in kladrRepository.Regions.OrderBy(region => region.Code))
             {
-                tree.Insert(region.Code, region.Name);
+                regionsTree.Insert(region.Code, region.Name);
             }
-            this.provider = provider;
-
-
-            var regions = GetRegions();
-            ViewData["regions"] = regions;
         }
+
         public ActionResult Login()
         {
             return View();
@@ -39,41 +46,35 @@ namespace KladrTask.WebUI.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
-
             if (ModelState.IsValid)
             {
                 if (provider.Authenticate(model.Name, model.Password))
                 {
                     return Redirect(returnUrl ?? Url.Action("Index", "Registration"));
                 }
-                else
-                {
-                    ModelState.AddModelError("", "Неправильный логин или пароль");
-                    return View();
-                }
-            }
-            else
-            {
+                ModelState.AddModelError("", "Неправильный логин или пароль");
                 return View();
             }
+            return View();
         }
 
         [HttpGet]
         public ActionResult Register()
         {
-
-
             return View();
         }
 
         public List<SelectListItem> GetRegions()
         {
-            List<SelectListItem> regions = new List<SelectListItem>
-            {
-                new SelectListItem() {Text = "Select", Value = "0"}
-            };
-            regions.AddRange(kladrRepository.Regions.ToList().Where(r => Tree.GetLevel(r.Code) == 1).Select(region => new SelectListItem() { Text = region.Name, Value = region.Code }));
+            var regions = kladrRepository.Regions
+                                            .ToList()
+                                            .Where(r => Tree.GetLevel(r.Code) == 1)
+                                            .Select(region => new SelectListItem() { Text = region.Name, Value = region.Code })
+                                            .ToList();
+            var sverdlovskRegionIndex =
+                regions.Select((reg, i) => Tuple.Create(i, reg.Value)).First(tuple => tuple.Item2 == SverdlovskRegionCode).Item1;
 
+            regions.Swap(sverdlovskRegionIndex, 0);
             return regions;
         }
 
@@ -81,7 +82,7 @@ namespace KladrTask.WebUI.Controllers
         public JsonResult GetLocalities(string id)
         {
             var states = new List<SelectListItem> { new SelectListItem() { Text = "Select", Value = "0" } };
-            states.AddRange(tree.GetChilds(id).Select(child => new SelectListItem() { Text = child.Name, Value = child.Code }));
+            states.AddRange(regionsTree.GetChilds(id).Select(child => new SelectListItem() { Text = child.Name, Value = child.Code }));
 
             return Json(new SelectList(states, "Value", "Text"));
         }
@@ -90,7 +91,6 @@ namespace KladrTask.WebUI.Controllers
         {
             var streets = new List<SelectListItem>
             {
-                new SelectListItem() {Text = "Select", Value = "0"},
                 new SelectListItem() {Text = "", Value = ""}
             };
 
@@ -125,11 +125,7 @@ namespace KladrTask.WebUI.Controllers
                 return Redirect(returnUrl ?? Url.Action("Index", "Registration"));
 
             }
-            else
-            {
-                return View();
-            }
-
+            return View();
         }
     }
 }
