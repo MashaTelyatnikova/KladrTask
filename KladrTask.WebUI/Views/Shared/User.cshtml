@@ -20,6 +20,20 @@
         @Model.RoadCode
         <br />
         @Model.HouseCode
+
+        @using (Html.BeginForm("AddToMailbox", "Mailbox"))
+        {
+            @Html.HiddenFor(x => x.Login)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" value="+ Add to mailbox" />
+        }
+
+        @using (Html.BeginForm("RemoveFromMailbox", "Mailbox"))
+        {
+            @Html.HiddenFor(x => x.Login)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" value="- Remove from mailbox" />
+        }
     </div>
 </center>
 <br/>

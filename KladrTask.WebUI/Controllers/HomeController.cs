@@ -60,6 +60,5 @@ namespace KladrTask.WebUI.Controllers
             }).ToList();
             return View(new UsersListViewModel(){Users = result});
         }
-
     }
 }

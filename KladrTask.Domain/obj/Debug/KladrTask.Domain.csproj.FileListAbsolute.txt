@@ -30,3 +30,4 @@ C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domai
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.DeleteUser.resources
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.AddUserAndAddress.resources
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.AddRoleToUser.resources
+C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.csprojResolveAssemblyReference.cache
