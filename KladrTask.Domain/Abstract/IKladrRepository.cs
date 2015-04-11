@@ -13,5 +13,7 @@ namespace KladrTask.Domain.Abstract
 
         void AddUser(User user);
         void AddAddress(Address address);
+
+        User GetUserByLogin(string login);
     }
 }

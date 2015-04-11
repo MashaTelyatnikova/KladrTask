@@ -1,7 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using KladrTask.Domain.Abstract;
 using KladrTask.Domain.Entities;
-using Microsoft.SqlServer.Server;
 
 namespace KladrTask.Domain.Concrete
 {
@@ -25,6 +25,11 @@ namespace KladrTask.Domain.Concrete
         {
             kladrContext.Addresses.Add(address);
             kladrContext.SaveChanges();
+        }
+
+        public User GetUserByLogin(string login)
+        {
+            return kladrContext.Users.FirstOrDefault(user => user.Login == login);
         }
 
 

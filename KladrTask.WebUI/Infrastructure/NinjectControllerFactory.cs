@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Ninject;
 using System.Configuration;
+using KladrTask.Domain.Abstract;
+using KladrTask.Domain.Concrete;
 using KladrTask.WebUI.Infrastructure.Abstract;
 using KladrTask.WebUI.Infrastructure.Concrete;
 
@@ -27,6 +29,7 @@ namespace KladrTask.WebUI.Infrastructure
         private void AddBindings()
         {
             ninjectKernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
+            ninjectKernel.Bind<IKladrRepository>().To<DbKladrRepository>();
         }
     }
 }

@@ -1,0 +1,24 @@
+﻿@model KladrTask.WebUI.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Guest";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+<h2>Guest</h2>
+
+
+@Model.FirstName
+<br />
+@Model.LastName
+<br />
+@Model.Birthday
+<br />
+@Model.RegionCode
+<br />
+@Model.LocalityCode
+<br />
+@Model.RoadCode
+<br />
+@Model.HouseCode
+

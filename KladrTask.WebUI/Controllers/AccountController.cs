@@ -52,7 +52,7 @@ namespace KladrTask.WebUI.Controllers
             {
                 if (provider.Authenticate(model.Name, model.Password))
                 {
-                    return Redirect(returnUrl ?? Url.Action("Index", "Registration"));
+                    return Redirect(returnUrl ?? Url.Action("Index", "Home"));
                 }
                 ModelState.AddModelError("", "Неправильный логин или пароль");
                 return View();
@@ -126,7 +126,7 @@ namespace KladrTask.WebUI.Controllers
             {
                 AddUserToDb(user);
                 provider.Authenticate(user.Login, user.Password);
-                return Redirect(returnUrl ?? Url.Action("Index", "Registration"));
+                return Redirect(returnUrl ?? Url.Action("Index", "Home"));
 
             }
             return View();
