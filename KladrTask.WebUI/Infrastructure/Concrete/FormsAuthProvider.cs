@@ -29,8 +29,6 @@ namespace KladrTask.WebUI.Infrastructure.Concrete
             var res = repository.Users.FirstOrDefault(user => user.Login == username && user.Password == password);
 
             return res != null;
-
-            return true;
         }
     }
 }
