@@ -14,12 +14,13 @@ namespace KladrTask.Domain.Entities
         public string Locality { get; set; }
 
         [Required]
-        public string Street { get; set; }
+        public string Road { get; set; }
 
         [Required]
         public string House { get; set; }
 
         [Required]
         public string Index { get; set; }
+
     }
 }

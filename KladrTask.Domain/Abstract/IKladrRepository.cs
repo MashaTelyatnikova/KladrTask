@@ -9,8 +9,8 @@ namespace KladrTask.Domain.Abstract
 {
     public interface IKladrRepository
     {
-        IQueryable<User> Users { get; }
         IQueryable<Address> Addresses { get; }
+        IQueryable<User> Users { get; }
         IQueryable<Region> Regions { get; }
         IQueryable<Road> Roads { get; }
         IQueryable<House> Houses { get; }

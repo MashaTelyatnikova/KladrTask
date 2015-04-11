@@ -52,13 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IKladrRepository.cs" />
+    <Compile Include="Entities\Address.cs" />
     <Compile Include="Concrete\DbKladrContext.cs" />
     <Compile Include="Concrete\DbKladrRepository.cs" />
-    <Compile Include="Entities\Address.cs" />
-    <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\House.cs" />
     <Compile Include="Entities\Region.cs" />
     <Compile Include="Entities\Road.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Migrations\201504041352573_InitialCreate.cs" />
     <Compile Include="Migrations\201504041352573_InitialCreate.Designer.cs">
       <DependentUpon>201504041352573_InitialCreate.cs</DependentUpon>
@@ -75,9 +75,26 @@
     <Compile Include="Migrations\201504051817264_ChangeUser.Designer.cs">
       <DependentUpon>201504051817264_ChangeUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504111905405_DeleteAddress.cs" />
+    <Compile Include="Migrations\201504111905405_DeleteAddress.Designer.cs">
+      <DependentUpon>201504111905405_DeleteAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504111908036_DeleteUser.cs" />
+    <Compile Include="Migrations\201504111908036_DeleteUser.Designer.cs">
+      <DependentUpon>201504111908036_DeleteUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504111917260_AddUserAndAddress.cs" />
+    <Compile Include="Migrations\201504111917260_AddUserAndAddress.Designer.cs">
+      <DependentUpon>201504111917260_AddUserAndAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504111918114_AddRoleToUser.cs" />
+    <Compile Include="Migrations\201504111918114_AddRoleToUser.Designer.cs">
+      <DependentUpon>201504111918114_AddRoleToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -100,6 +117,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504051817264_ChangeUser.resx">
       <DependentUpon>201504051817264_ChangeUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504111905405_DeleteAddress.resx">
+      <DependentUpon>201504111905405_DeleteAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504111908036_DeleteUser.resx">
+      <DependentUpon>201504111908036_DeleteUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504111917260_AddUserAndAddress.resx">
+      <DependentUpon>201504111917260_AddUserAndAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504111918114_AddRoleToUser.resx">
+      <DependentUpon>201504111918114_AddRoleToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,8 +8,8 @@ namespace KladrTask.Domain.Concrete
     {
         private readonly DbKladrContext kladrContext;
 
-        public IQueryable<User> Users { get { return kladrContext.Users; } }
         public IQueryable<Address> Addresses { get { return kladrContext.Addresses; } }
+        public IQueryable<User> Users { get { return kladrContext.Users; } }
         public IQueryable<Region> Regions { get { return kladrContext.Regions; } }
         public IQueryable<Road> Roads { get { return kladrContext.Roads; } }
         public IQueryable<House> Houses { get { return kladrContext.Houses; } }

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KladrTask.Domain.Entities
 {
@@ -26,5 +23,14 @@ namespace KladrTask.Domain.Entities
 
         [Required]
         public string Password { get; set; }
+
+        [ForeignKey("Address")]
+        public int AddressId { get; set; }
+
+        [Required]
+        public Role Role { get; set; }
+
+        public virtual Address Address { get; set; }
+
     }
 }

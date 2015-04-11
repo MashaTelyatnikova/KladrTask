@@ -19,7 +19,6 @@ C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\bin\Debug\EntityFramework
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\bin\Debug\EntityFramework.xml
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.csprojResolveAssemblyReference.cache
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.InitialCreate.resources
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.StreetRenamed.resources
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.StreetRenamed1.resources
@@ -27,3 +26,7 @@ C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domai
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.exe
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.pdb
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.ChangeUser.resources
+C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.DeleteAddress.resources
+C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.DeleteUser.resources
+C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.AddUserAndAddress.resources
+C:\Users\asus\Desktop\MvcApplication9\KladrTask.Domain\obj\Debug\KladrTask.Domain.Migrations.AddRoleToUser.resources
