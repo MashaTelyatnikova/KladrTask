@@ -34,6 +34,13 @@
             @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
             <input type="submit" value="- Remove from mailbox" />
         }
+
+        @using (Html.BeginForm("Index", "LettersRedactor"))
+        {
+            @Html.TextBox("letter")
+            <input type="submit" value="Показать письма" />
+        }
+
     </div>
 </center>
-<br/>
+<br />

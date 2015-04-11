@@ -1,0 +1,11 @@
+﻿@model KladrTask.WebUI.Models.LettersListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+@foreach (var letter in @Model.Letters)
+{
+    Html.RenderPartial("Letter", letter);
+}
