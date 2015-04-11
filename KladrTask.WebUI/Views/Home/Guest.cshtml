@@ -7,18 +7,6 @@
 
 <h2>Guest</h2>
 
-
-@Model.FirstName
-<br />
-@Model.LastName
-<br />
-@Model.Birthday
-<br />
-@Model.RegionCode
-<br />
-@Model.LocalityCode
-<br />
-@Model.RoadCode
-<br />
-@Model.HouseCode
-
+@{
+    Html.RenderPartial("User", @Model);
+}

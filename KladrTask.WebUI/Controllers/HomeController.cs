@@ -46,7 +46,18 @@ namespace KladrTask.WebUI.Controllers
 
         public ActionResult Admin()
         {
-            var result = repository.Users.ToList();
+            var result = repository.Users.ToList().Select(user => new UserViewModel()
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Birthday = user.Birthday,
+                RegionCode = user.Address.Region,
+                LocalityCode = user.Address.Locality,
+                RoadCode = user.Address.Road,
+                HouseCode = user.Address.House,
+                Login = user.Login,
+                Password = user.Password
+            }).ToList();
             return View(new UsersListViewModel(){Users = result});
         }
 

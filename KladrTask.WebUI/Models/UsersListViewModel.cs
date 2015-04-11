@@ -5,6 +5,6 @@ namespace KladrTask.WebUI.Models
 {
     public class UsersListViewModel
     {
-        public List<User> Users;
+        public List<UserViewModel> Users;
     }
 }
