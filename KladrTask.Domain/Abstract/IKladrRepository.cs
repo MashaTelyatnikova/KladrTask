@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using KladrTask.Domain.Entities;
 
 namespace KladrTask.Domain.Abstract
@@ -14,5 +10,8 @@ namespace KladrTask.Domain.Abstract
         IQueryable<Region> Regions { get; }
         IQueryable<Road> Roads { get; }
         IQueryable<House> Houses { get; }
+
+        void AddUser(User user);
+        void AddAddress(Address address);
     }
 }

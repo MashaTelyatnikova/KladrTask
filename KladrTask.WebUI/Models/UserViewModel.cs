@@ -28,7 +28,7 @@ namespace KladrTask.WebUI.Models
         public string LocalityCode { get; set; }
 
         [Required(ErrorMessage = "Пожалуйста, выберете улицу")]
-        public string StreetCode { get; set; }
+        public string RoadCode { get; set; }
 
         [Required(ErrorMessage = "Пожалуйста, выберете дом")]
         public string HouseCode { get; set; }

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using KladrTask.Domain;
 using KladrTask.Domain.Concrete;
+using KladrTask.Domain.Entities;
 using KladrTask.WebUI.Infrastructure.Abstract;
 using KladrTask.WebUI.Models;
 using PrefixTree;
@@ -108,10 +110,10 @@ namespace KladrTask.WebUI.Controllers
 
             if (id == "") return Json(new SelectList(houses, "Value", "Text"));
             var code = id.Substring(0, 15);
-            foreach (var street in kladrRepository.Houses.Where(st => st.Code.StartsWith(code)))
+            foreach (var house in kladrRepository.Houses.Where(st => st.Code.StartsWith(code)))
             {
-                var homes = street.Name.Split(',').ToList();
-                houses.AddRange(homes.OrderBy(i => i).Select(home => new SelectListItem() { Text = home, Value = street.Code + "," + home }));
+                var homes = house.Name.Split(',').ToList();
+                houses.AddRange(homes.OrderBy(i => i).Select(home => new SelectListItem() { Text = home, Value = house.Code + "," + home }));
             }
 
             return Json(new SelectList(houses, "Value", "Text"));
@@ -122,10 +124,27 @@ namespace KladrTask.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
+                AddUserToDb(user);
+                provider.Authenticate(user.Login, user.Password);
                 return Redirect(returnUrl ?? Url.Action("Index", "Registration"));
 
             }
             return View();
+        }
+
+        public void AddUserToDb(UserViewModel user)
+        {
+            var region = kladrRepository.GetRegionByCode(user.RegionCode);
+            var locality = kladrRepository.GetRegionByCode(user.LocalityCode);
+            var road = kladrRepository.GetRoadByCode(user.RoadCode);
+            var house = kladrRepository.GetHouseByCode(user.HouseCode.Split(',').First());
+
+
+            var address = new Address(){Region = region.Name, Locality = locality.Name, Road = road.Name, House = user.HouseCode.Split(',').Last(), Index = house.Index};
+            kladrRepository.AddAddress(address);
+
+            var guest = new User(){Login = user.Login, Password = user.Password, Address = address, FirstName = user.FirstName, Birthday = user.Birthday, LastName = user.LastName, Role = Role.Guest};
+            kladrRepository.AddUser(guest);
         }
     }
 }
