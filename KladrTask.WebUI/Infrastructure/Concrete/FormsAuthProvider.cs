@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.EnterpriseServices;
+using System.Linq;
 using System.Web.Security;
 using KladrTask.Domain.Concrete;
 using KladrTask.WebUI.Infrastructure.Abstract;
@@ -16,6 +17,11 @@ namespace KladrTask.WebUI.Infrastructure.Concrete
                 FormsAuthentication.SetAuthCookie(username, false);
             }
             return result;
+        }
+
+        public void LogOut()
+        {
+            FormsAuthentication.SignOut();
         }
 
         private bool Check(string username, string password)

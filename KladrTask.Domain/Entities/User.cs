@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Principal;
 
 namespace KladrTask.Domain.Entities
 {
@@ -31,6 +32,5 @@ namespace KladrTask.Domain.Entities
         public Role Role { get; set; }
 
         public virtual Address Address { get; set; }
-
     }
 }

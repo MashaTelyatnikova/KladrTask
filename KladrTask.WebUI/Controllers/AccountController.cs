@@ -40,6 +40,7 @@ namespace KladrTask.WebUI.Controllers
             }
         }
 
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
@@ -58,6 +59,13 @@ namespace KladrTask.WebUI.Controllers
                 return View();
             }
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            provider.LogOut();
+
+            return RedirectToAction("Login");
         }
 
         [HttpGet]
