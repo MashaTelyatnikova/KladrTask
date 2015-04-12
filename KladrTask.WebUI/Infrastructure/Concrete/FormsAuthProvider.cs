@@ -10,7 +10,6 @@ namespace KladrTask.WebUI.Infrastructure.Concrete
 
         public bool Authenticate(string username, string password)
         {
-
             bool result = Check(username, password);
             if (result)
             {

@@ -46,6 +46,10 @@ namespace KladrTask.WebUI.Controllers
 
         public ActionResult Admin()
         {
+            var u = repository.GetUserByLogin(HttpContext.User.Identity.Name);
+            if (u.Role == Role.Guest)
+                return Redirect(Url.Action("Login", "Account"));
+            
             var result = repository.Users.ToList().Select(user => new UserViewModel()
             {
                 FirstName = user.FirstName,
@@ -58,7 +62,7 @@ namespace KladrTask.WebUI.Controllers
                 Login = user.Login,
                 Password = user.Password
             }).ToList();
-            return View(new UsersListViewModel(){Users = result});
+            return View(new UsersListViewModel() { Users = result });
         }
     }
 }
