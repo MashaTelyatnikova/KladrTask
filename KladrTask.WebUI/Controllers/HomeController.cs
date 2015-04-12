@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using KladrTask.Domain;
 using KladrTask.Domain.Abstract;
@@ -9,9 +10,6 @@ namespace KladrTask.WebUI.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
-
         private readonly IKladrRepository repository;
         private UserViewModel currentUser;
         public HomeController(IKladrRepository repository)
@@ -23,7 +21,7 @@ namespace KladrTask.WebUI.Controllers
         {
             var user = repository.GetUserByLogin(HttpContext.User.Identity.Name);
 
-            return user.Role == Role.Admin ? RedirectToAction("Admin", new { returnUrl }) : RedirectToAction("Guest", new { returnUrl });
+            return user.Role == Role.Admin ? RedirectToAction("Index", "Admin", new { returnUrl }) : RedirectToAction("Guest", new { returnUrl });
         }
 
         public ActionResult Guest()
@@ -42,27 +40,6 @@ namespace KladrTask.WebUI.Controllers
                 Password = user.Password
             };
             return View(currentUser);
-        }
-
-        public ActionResult Admin()
-        {
-            var u = repository.GetUserByLogin(HttpContext.User.Identity.Name);
-            if (u.Role == Role.Guest)
-                return Redirect(Url.Action("Login", "Account"));
-            
-            var result = repository.Users.ToList().Select(user => new UserViewModel()
-            {
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Birthday = user.Birthday,
-                RegionCode = user.Address.Region,
-                LocalityCode = user.Address.Locality,
-                RoadCode = user.Address.Road,
-                HouseCode = user.Address.House,
-                Login = user.Login,
-                Password = user.Password
-            }).ToList();
-            return View(new UsersListViewModel() { Users = result });
         }
     }
 }

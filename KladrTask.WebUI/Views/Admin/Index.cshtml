@@ -1,0 +1,30 @@
+﻿@using MvcCheckBoxList.Model
+@model KladrTask.WebUI.Models.UserListViewModel
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="stylesheet" href="~/Content/reset.css">
+<link rel="stylesheet" href="~/Content/animate.css">
+<link rel="stylesheet" href="~/Content/admin.css">
+<link rel="icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon">
+
+<div id="container">
+    @using (Html.BeginForm("Index", "Admin", FormMethod.Post))
+    {
+        @Html.CheckBoxListFor(model => model.PostedUsers.UserIds,
+                                  model => model.AvailableUsers,
+                                  fruit => fruit.Id,
+                                  fruit => fruit.Login + " (" + fruit.FirstName + " " + fruit.LastName + ")",
+                                  model => model.SelectedUsers,
+                                  Position.Vertical)
+        <br/>
+        <br/>
+        @Html.TextArea("text", new {id = "letter"})
+        <br/>
+        <br/>
+        <input class="green" type="submit" value="Сохранить" />
+    }
+</div>
+

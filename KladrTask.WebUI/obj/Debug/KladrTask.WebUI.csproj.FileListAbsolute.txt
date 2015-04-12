@@ -30,3 +30,4 @@ C:\Users\asus\Desktop\MvcApplication9\KladrTask.WebUI\bin\EntityFramework.SqlSer
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.WebUI\bin\EntityFramework.SqlServer.xml
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.WebUI\bin\Ninject.dll
 C:\Users\asus\Desktop\MvcApplication9\KladrTask.WebUI\bin\Ninject.xml
+C:\Users\asus\Desktop\MvcApplication9\KladrTask.WebUI\bin\MvcCheckBoxList.dll

@@ -1,0 +1,92 @@
+﻿/* Stylesheet */
+
+
+/* Imports */
+
+@import url(animate.css);
+
+/* Selections */
+
+::selection {
+ 	color: #fff;
+ 	text-shadow: none;
+ 	background: #444;
+}
+
+::-moz-selection {
+ 	color: #fff;
+ 	text-shadow: none;
+ 	background: #444;
+}
+
+/* Basics */
+
+html, body {
+	width: 100%;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	color: #444;
+	-webkit-font-smoothing: antialiased;
+	background: url(Images/bg.png) repeat;
+	
+}
+
+
+#container {
+	position: relative;
+	width: 740px;
+	height: 680px;
+	top: 20%;
+	left: 40%;
+	margin-top: -140px;
+	margin-left: -170px;
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	-webkit-animation-name: bounceIn;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: bounceIn;
+	-moz-animation-fill-mode: both;
+	-moz-animation-duration: 1s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+	animation-name: bounceIn;
+	animation-fill-mode: both;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+}
+
+input[type=submit] {
+	width: 100px;
+	height: 25px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#acd6ef), to(#6ec2e8));
+	background-image: -moz-linear-gradient(top left 90deg, #acd6ef 0%, #6ec2e8 100%);
+	background-image: linear-gradient(top left 90deg, #acd6ef 0%, #6ec2e8 100%);
+	border-radius: 30px;
+	border: 1px solid #66add6;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .5);
+	cursor: pointer;
+}
+
+
+#letter{
+	color: #777;
+	margin: 5px;
+	margin-top: 12px;
+	width: 490px;
+	height: 290px;
+	border: 1px solid #c7d0d2;
+	border-radius: 2px;
+	box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	transition: all .4s ease;
+    font-size: 40px;
+}

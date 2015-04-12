@@ -5,6 +5,7 @@ namespace KladrTask.WebUI.Models
 {
     public class UserViewModel
     {
+        public int Id { get; set; }
         [Required(ErrorMessage = "Пожалуйста, введите логин")]
         public string Login { get; set; }
 
