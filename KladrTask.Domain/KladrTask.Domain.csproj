@@ -56,7 +56,6 @@
     <Compile Include="Concrete\DbKladrContext.cs" />
     <Compile Include="Concrete\DbKladrRepository.cs" />
     <Compile Include="Entities\House.cs" />
-    <Compile Include="Entities\Mailbox.cs" />
     <Compile Include="Entities\Region.cs" />
     <Compile Include="Entities\Road.cs" />
     <Compile Include="Entities\User.cs" />

@@ -2,8 +2,6 @@
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using KladrTask.Domain.Entities;
-using KladrTask.WebUI.Binders;
 using KladrTask.WebUI.Infrastructure;
 
 namespace KladrTask.WebUI
@@ -20,7 +18,6 @@ namespace KladrTask.WebUI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
-            ModelBinders.Binders.Add(typeof (Mailbox), new MailboxModelBinder());
         }
     }
 }

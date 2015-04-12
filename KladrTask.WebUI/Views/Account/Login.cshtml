@@ -9,8 +9,10 @@
 {
     @Html.ValidationSummary()
     <label for="name">Имя пользователя:</label>
+    <br/>
     @Html.TextBoxFor(m => m.Name,new {type = "name"})
     <label for="name">Пароль:</label>
+    <br/>
     @Html.PasswordFor(m => m.Password, new{type="password"})
     <div id="lower">
         <input type="submit" value="Войти"/>
