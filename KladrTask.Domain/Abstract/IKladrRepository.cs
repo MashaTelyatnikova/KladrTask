@@ -15,7 +15,7 @@ namespace KladrTask.Domain.Abstract
         IQueryable<House> Houses { get; }
 
         void AddUser(User user);
-        void AddAddress(Address address);
+        Address GetAddress(Address address);
         void SaveChanges();
         User GetUserByLogin(string login);
         Region GetRegionByCode(string code);

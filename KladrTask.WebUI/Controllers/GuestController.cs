@@ -130,8 +130,8 @@ namespace KladrTask.WebUI.Controllers
             var house = repository.GetHouseByCode(user.HouseCode.Split(',').First());
 
 
-            var address = new Address() { Region = region.Name, Locality = locality.Name, Road = road.Name, House = user.HouseCode.Split(',').Last(), Index = house.Index };
-            repository.AddAddress(address);
+            var address = new Address() { Region = region.Name, Locality = locality.Name, Road = road.Name, House = user.HouseCode.Split(',').Last(), Index = house.Index, RegionCode = region.Code, LocalityCode = locality.Code, HouseCode = house.Code, RoadCode = road.Code};
+            address = repository.GetAddress(address);
 
             currentUser.Login = user.Login;
             currentUser.Password = user.Password;

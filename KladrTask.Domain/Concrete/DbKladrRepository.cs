@@ -16,20 +16,25 @@ namespace KladrTask.Domain.Concrete
         public IQueryable<Region> Regions { get { return kladrContext.Regions; } }
         public IQueryable<Road> Roads { get { return kladrContext.Roads; } }
         public IQueryable<House> Houses { get { return kladrContext.Houses; } }
-        
+
         public void AddUser(User user)
         {
             kladrContext.Users.Add(user);
             kladrContext.SaveChanges();
         }
 
-        public void AddAddress(Address address)
+        public Address GetAddress(Address address)
         {
-            if (kladrContext.Addresses.Contains(address))
-                return;
+            var adr = kladrContext.Addresses.ToList().FirstOrDefault(a => a.Equals(address));
+            if (adr != null)
+            {
+                return adr;
+            }
 
             kladrContext.Addresses.Add(address);
             kladrContext.SaveChanges();
+
+            return address;
         }
 
         public void SaveChanges()
@@ -41,7 +46,7 @@ namespace KladrTask.Domain.Concrete
         {
             return kladrContext.Users.FirstOrDefault(user => user.Login == login);
         }
-        
+
         public Region GetRegionByCode(string code)
         {
             return Regions.FirstOrDefault(region => region.Code == code);
