@@ -10,7 +10,7 @@ namespace PrefixTree
         public Node Parent { get; set; }
         public bool IsFinal { get; set; }
         public IEnumerable<Node> Childs { get { return childs.Values; } }
-        private readonly Dictionary<string, Node> childs;
+        private Dictionary<string, Node> childs;
 
         public Node()
         {
@@ -26,6 +26,19 @@ namespace PrefixTree
         {
             Node result = null;
             return childs.TryGetValue(code, out result) ? result : null;
+        }
+
+        public Node Clone()
+        {
+            var copy = new Node();
+            copy.Index = Index;
+            copy.Code = Code;
+            copy.FullName = FullName;
+            copy.Parent = Parent;
+            copy.IsFinal = IsFinal;
+            copy.childs = childs;
+
+            return copy;
         }
     }
 }

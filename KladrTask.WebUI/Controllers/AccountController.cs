@@ -76,16 +76,8 @@ namespace KladrTask.WebUI.Controllers
 
         public List<SelectListItem> GetRegions()
         {
-            var regions = kladrRepository.Regions
-                                            .ToList()
-                                            .Where(r => Tree.GetLevel(r.Code) == 1)
-                                            .Select(region => new SelectListItem() { Text = region.Name, Value = region.Code })
-                                            .ToList();
-            var sverdlovskRegionIndex =
-                regions.Select((reg, i) => Tuple.Create(i, reg.Value)).First(tuple => tuple.Item2 == SverdlovskRegionCode).Item1;
-
-            regions.Swap(sverdlovskRegionIndex, 0);
-            return regions;
+            return kladrRepository.Regions
+                .Select(region => new SelectListItem() {Text = region.Name, Value = region.Code, Selected = region.Code == SverdlovskRegionCode}).ToList();
         }
 
 
@@ -148,7 +140,7 @@ namespace KladrTask.WebUI.Controllers
             var house = kladrRepository.GetHouseByCode(user.HouseCode.Split(',').First());
 
 
-            var address = new Address(){Region = region.Name, Locality = locality.Name, Road = road.Name, House = user.HouseCode.Split(',').Last(), Index = house.Index};
+            var address = new Address(){Region = region.Name, Locality = locality.Name, Road = road.Name, House = user.HouseCode.Split(',').Last(), RegionCode = user.RegionCode, LocalityCode = user.LocalityCode, RoadCode = user.RoadCode, HouseCode = user.HouseCode.Split(',').First(),Index = house.Index};
             kladrRepository.AddAddress(address);
 
             var guest = new User(){Login = user.Login, Password = user.Password, Address = address, FirstName = user.FirstName, Birthday = user.Birthday, LastName = user.LastName, Role = Role.Guest};

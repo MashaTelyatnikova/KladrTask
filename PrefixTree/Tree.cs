@@ -72,13 +72,15 @@ namespace PrefixTree
 
                 foreach (var child in node.Childs)
                 {
+                    var copyChild = child.Clone();
+    
                     if (node.FullName != "")
                     {
-                        if (child.FullName != "")
-                            child.FullName += ", ";
-                        child.FullName += node.FullName;
+                        if (copyChild.FullName != "")
+                            copyChild.FullName += ", ";
+                        copyChild.FullName += node.FullName;
                     }
-                    queue.Enqueue(child);
+                    queue.Enqueue(copyChild);
                 }
             }
         }

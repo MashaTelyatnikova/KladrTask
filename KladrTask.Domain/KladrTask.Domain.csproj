@@ -91,6 +91,10 @@
     <Compile Include="Migrations\201504111918114_AddRoleToUser.Designer.cs">
       <DependentUpon>201504111918114_AddRoleToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504131426338_AddNewFieldsToAddress.cs" />
+    <Compile Include="Migrations\201504131426338_AddNewFieldsToAddress.Designer.cs">
+      <DependentUpon>201504131426338_AddNewFieldsToAddress.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504111918114_AddRoleToUser.resx">
       <DependentUpon>201504111918114_AddRoleToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504131426338_AddNewFieldsToAddress.resx">
+      <DependentUpon>201504131426338_AddNewFieldsToAddress.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

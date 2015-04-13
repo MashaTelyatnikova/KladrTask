@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using KladrTask.Domain.Abstract;
 using KladrTask.Domain.Entities;
@@ -23,7 +25,15 @@ namespace KladrTask.Domain.Concrete
 
         public void AddAddress(Address address)
         {
+            if (kladrContext.Addresses.Contains(address))
+                return;
+
             kladrContext.Addresses.Add(address);
+            kladrContext.SaveChanges();
+        }
+
+        public void SaveChanges()
+        {
             kladrContext.SaveChanges();
         }
 
@@ -31,8 +41,7 @@ namespace KladrTask.Domain.Concrete
         {
             return kladrContext.Users.FirstOrDefault(user => user.Login == login);
         }
-
-
+        
         public Region GetRegionByCode(string code)
         {
             return Regions.FirstOrDefault(region => region.Code == code);
