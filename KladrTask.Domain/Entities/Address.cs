@@ -37,7 +37,7 @@ namespace KladrTask.Domain.Entities
         public override bool Equals(object obj)
         {
             var other = (Address) obj;
-            return Region == other.Region && Locality == other.Locality && Road == other.Road && House == other.House &&
+             return Region == other.Region && Locality == other.Locality && Road == other.Road && House == other.House &&
                    Index == other.Index && RegionCode == other.RegionCode && LocalityCode == other.LocalityCode &&
                    RoadCode == other.RoadCode && HouseCode == other.HouseCode;
         }

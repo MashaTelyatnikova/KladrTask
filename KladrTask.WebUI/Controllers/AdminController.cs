@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web.Mvc;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using KladrTask.Domain;
 using KladrTask.Domain.Abstract;
 using KladrTask.WebUI.Models;
 
 namespace KladrTask.WebUI.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly IKladrRepository repository;
@@ -29,20 +33,39 @@ namespace KladrTask.WebUI.Controllers
         [HttpPost]
         public ActionResult Index(PostedUsers postedUsers, string text)
         {
-            if (postedUsers != null && postedUsers.UserIds != null)
-                Response.SaveFile("Letters.txt", String.Join("\n", GetLetters(postedUsers.UserIds, text)));
+            if (postedUsers == null || postedUsers.UserIds == null)
+                return View(GetUserListModel(postedUsers));
+
+            var letters = GetLetters(postedUsers.UserIds, text).ToArray();
+            var document = new Document();
+            var arialFontPath = string.Format(@"{0}Content\arial.ttf", AppDomain.CurrentDomain.BaseDirectory);
+            var baseFont = BaseFont.CreateFont(arialFontPath, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            var font = new Font(baseFont, 12);
+
+            var stream = new MemoryStream();
+            PdfWriter.GetInstance(document, stream).CloseStream = false;
             
-            return View(GetUserListModel(postedUsers));
+            document.Open();
+            foreach (var letter in letters)
+            {
+                document.NewPage();
+                document.Add(new Paragraph(letter, font));
+            }
+            document.Close();
+
+            var byteInfo = stream.ToArray();
+            stream.Write(byteInfo, 0, byteInfo.Length);
+            stream.Position = 0;
+            return new FileStreamResult(stream, "application/pdf");
         }
 
         private IEnumerable<string> GetLetters(IEnumerable<string> userIds, string text)
         {
             return userIds.Select(id => GetLetter(int.Parse(id), text));
-        } 
+        }
 
         private string GetLetter(int userId, string text)
         {
-
             var user = repository.Users.First(u => u.Id == userId);
 
             return string.Format("Получатель: {0}\nАдрес : {1},{2},{3},{4}\nИндекс : {5} \n\n{6}\n\n", user.FirstName + ' ' + user.LastName, user.Address.Region, user.Address.Locality, user.Address.Road, user.Address.House, user.Address.Index, text);
@@ -80,7 +103,7 @@ namespace KladrTask.WebUI.Controllers
             var model = new UserListViewModel();
             var selectedUsers = new List<UserViewModel>();
 
-            model.AvailableUsers = repository.Users.ToList().Select(user => new UserViewModel(){Id = user.Id, Login = user.Login, FirstName = user.FirstName, LastName = user.LastName});
+            model.AvailableUsers = repository.Users.ToList().Select(user => new UserViewModel() { Id = user.Id, Login = user.Login, FirstName = user.FirstName, LastName = user.LastName });
             model.SelectedUsers = selectedUsers;
 
             return model;
