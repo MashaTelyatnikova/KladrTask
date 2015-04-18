@@ -139,7 +139,6 @@ namespace KladrTask.WebUI.Controllers
             currentUser.FirstName = user.FirstName;
             currentUser.Birthday = user.Birthday;
             currentUser.LastName = user.LastName;
-            currentUser.Role = Role.Guest;
             repository.SaveChanges();
         }
     }

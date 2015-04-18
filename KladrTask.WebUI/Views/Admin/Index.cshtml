@@ -1,14 +1,51 @@
-﻿@using MvcCheckBoxList.Model
+﻿@using System.Web.UI.WebControls
+@using MvcCheckBoxList.Model
 @model KladrTask.WebUI.Models.UserListViewModel
 
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<script src="../../Scripts/jquery-2.1.3.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery-2.1.3.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="~/Content/reset.css">
 <link rel="stylesheet" href="~/Content/animate.css">
 <link rel="stylesheet" href="~/Content/admin.css">
 <link rel="icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon">
+<script>
+    $(document).ready(function() {
+        $("#selectAll").click(function() {
+            $.ajax({
+                success: function() {
+                    $("input[type='checkbox']").each(function() {
+                        this.checked = true;
+                    });
+                },
+                error: function(ex) {
+                    alert('Failed to retrieve states.' + ex);
+                }
+            });
+            return false;
+        })
+
+        $("#unselectAll").click(function () {
+            $.ajax({
+                success: function () {
+                    $("input[type='checkbox']").each(function () {
+                        this.checked = false;
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve states.' + ex);
+                }
+            });
+            return false;
+        })
+    });
+</script>
+
+
 
 <div id="container">
     @using (Html.BeginForm("Index", "Admin", FormMethod.Post))
@@ -18,13 +55,15 @@
                                   fruit => fruit.Id,
                                   fruit => fruit.Login + " (" + fruit.FirstName + " " + fruit.LastName + ")",
                                   model => model.SelectedUsers,
-                                  Position.Vertical)
+                                  Position.Vertical, x => new {id = "checkBox"})
         <br/>
+        <input class="green" type="button" id="selectAll" value="Выделить все"/>
+        <input class="green" type="button" id="unselectAll" value="Отменить выделение"/>
         <br/>
         @Html.TextArea("text", new {id = "letter"})
         <br/>
         <br/>
-        <input class="green" type="submit" value="Сохранить" />
+        <input class="green" type="submit" value="Сохранить"/>
     }
 </div>
 
