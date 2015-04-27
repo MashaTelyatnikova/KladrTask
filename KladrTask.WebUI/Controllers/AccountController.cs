@@ -28,8 +28,6 @@ namespace KladrTask.WebUI.Controllers
             FillRegionsTree();
 
             this.provider = provider;
-
-            ViewData["regions"] = GetRegions();
         }
 
         public void FillRegionsTree()
@@ -71,6 +69,7 @@ namespace KladrTask.WebUI.Controllers
         [HttpGet]
         public ActionResult Register()
         {
+            ViewData["regions"] = GetRegions();
             return View();
         }
 
@@ -78,12 +77,8 @@ namespace KladrTask.WebUI.Controllers
         {
             var regions = kladrRepository.Regions
                                            .ToList().Where(r => Tree.GetLevel(r.Code) == 1)
-                                           .Select(region => new SelectListItem() { Text = region.Name, Value = region.Code })
+                                           .Select(region => new SelectListItem() { Text = region.Name, Value = region.Code,Selected = region.Code == SverdlovskRegionCode})
                                            .ToList();
-
-            var sverdlovskRegionIndex = regions.Select((reg, i) => Tuple.Create(i, reg.Value)).First(tuple => tuple.Item2 == SverdlovskRegionCode).Item1;
-
-            regions.Swap(sverdlovskRegionIndex, 0);
             return regions;
         }
 
@@ -98,16 +93,15 @@ namespace KladrTask.WebUI.Controllers
 
         public JsonResult GetStreets(string id)
         {
-            var streets = new List<SelectListItem>
-            {
-                new SelectListItem() {Text = "", Value = ""}
-            };
-
+            var streets = new List<SelectListItem>();
             var code = id.Substring(0, 11);
             foreach (var street in kladrRepository.Roads.Where(st => st.Code.StartsWith(code)))
             {
                 streets.Add(new SelectListItem() { Text = street.Name, Value = street.Code });
             }
+
+            if (!streets.Any())
+                streets.Add(new SelectListItem() {Text = "", Value = ""});
             return Json(new SelectList(streets, "Value", "Text"));
         }
 
@@ -131,10 +125,13 @@ namespace KladrTask.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                AddUserToDb(user);
-                provider.Authenticate(user.Login, user.Password);
-                return Redirect(returnUrl ?? Url.Action("Index", "Home"));
-
+                if (!kladrRepository.ContainsUser(user.Login))
+                {
+                    AddUserToDb(user);
+                    provider.Authenticate(user.Login, user.Password);
+                    return Redirect(returnUrl ?? Url.Action("Index", "Home"));
+                }
+                ModelState.AddModelError("", "Такой пользователь уже существует");
             }
             return View();
         }

@@ -107,7 +107,7 @@
     @Html.ValidationMessageFor(m => m.Birthday)
     <br/>
     
-    @Html.DropDownListFor(m => m.RegionCode, ViewData["regions"] as List<SelectListItem>, "Выберете регион", new { id = "regions", style = "width:250px", @class = "dropdown1" })
+    @Html.DropDownListFor(m => m.RegionCode, ViewData["regions"] as List<SelectListItem>,  new { id = "regions", style = "width:250px", @class = "dropdown1" })
     <br/>
     @Html.DropDownListFor(m => m.LocalityCode, new SelectList(string.Empty, "Value", "Text"), "Выберете населенный пункт", new { id = "localities", style = "width:250px", @class = "dropdown1" })
     <br/>

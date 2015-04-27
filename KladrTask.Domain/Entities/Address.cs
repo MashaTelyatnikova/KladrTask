@@ -19,6 +19,10 @@ namespace KladrTask.Domain.Entities
         [Required]
         public string House { get; set; }
 
+        public string Housing { get; set; }
+
+        public string Apartment { get; set; }
+
         [Required]
         public string Index { get; set; }
 

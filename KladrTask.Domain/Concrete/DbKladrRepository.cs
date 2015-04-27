@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using KladrTask.Domain.Abstract;
 using KladrTask.Domain.Entities;
@@ -60,6 +58,11 @@ namespace KladrTask.Domain.Concrete
         public House GetHouseByCode(string code)
         {
             return Houses.FirstOrDefault(house => house.Code == code);
+        }
+
+        public bool ContainsUser(string userName)
+        {
+            return Users.Any(user => user.Login == userName);
         }
 
         public DbKladrRepository()

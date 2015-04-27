@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
 using KladrTask.Domain;
 using KladrTask.Domain.Abstract;
-using KladrTask.WebUI.Models;
 
 namespace KladrTask.WebUI.Controllers
 {
