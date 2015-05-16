@@ -3,7 +3,7 @@ using KladrTask.Domain.Entities;
 
 namespace KladrTask.Domain.Concrete
 {
-    public class DbKladrContext:DbContext
+    public class DbKladrContext : DbContext
     {
         public DbSet<Address> Addresses { get; set; }
         public DbSet<User> Users { get; set; }

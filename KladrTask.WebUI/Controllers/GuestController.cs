@@ -1,82 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using KladrTask.Domain;
+﻿using System.Web.Mvc;
 using KladrTask.Domain.Abstract;
 using KladrTask.Domain.Entities;
 using KladrTask.WebUI.Models;
-using PrefixTree;
 
 namespace KladrTask.WebUI.Controllers
 {
     public class GuestController : Controller
     {
         private readonly IKladrRepository repository;
-        private readonly Tree regionsTree;
+        private readonly KladrRepositoryHelper kladrRepositoryHelper;
         public GuestController(IKladrRepository repository)
         {
             this.repository = repository;
-            regionsTree = new Tree();
-            FillRegionsTree();
-        }
-
-        public void FillRegionsTree()
-        {
-            foreach (var region in repository.Regions.OrderBy(region => region.Code))
-            {
-                regionsTree.Insert(region.Code, region.Name);
-            }
-        }
-
-        public List<SelectListItem> GetRegions(string userRegionCode)
-        {
-            return repository.Regions
-                                .ToList()
-                                .Where(r => Tree.GetLevel(r.Code) == 1)
-                                .Select(reg => new SelectListItem() { Value = reg.Code, Text = reg.Name, Selected = reg.Code == userRegionCode })
-                                .ToList();
-        }
-
-        public List<SelectListItem> GetLocalities(string userRegionCode, string userLocalityCode)
-        {
-           var res = 
-                regionsTree.GetChilds(userRegionCode)
-                    .Select(
-                        reg =>
-                            new SelectListItem()
-                            {
-                                Value = reg.Code,
-                                Text = reg.Name,
-                                Selected = reg.Code == userLocalityCode
-                            })
-                    .ToList();
-
-            return res;
-        }
-
-        public List<SelectListItem> GetRoads(string userLocalityCode, string userRoadCode)
-        {
-            var locality = userLocalityCode.Substring(0, 11);
-
-            return
-                repository.Roads.Where(road => road.Code.StartsWith(locality))
-                    .Select(road => new SelectListItem() { Text = road.Name, Value = road.Code, Selected = road.Code == userRoadCode })
-                    .ToList();
-        }
-
-        public List<SelectListItem> GetHouses(string userRoadCode, string userHouse)
-        {
-            var road = userRoadCode.Substring(0, 15);
-            var houses = new List<SelectListItem>();
-
-            foreach (var house in repository.Houses.Where(st => st.Code.StartsWith(road)))
-            {
-                var homes = house.Name.Split(',').ToList();
-                houses.AddRange(homes.OrderBy(i => i).Select(home => new SelectListItem() { Text = home, Value = house.Code + "," + home, Selected = home == userHouse }));
-            }
-
-            return houses;
+            kladrRepositoryHelper = new KladrRepositoryHelper(repository);
         }
 
         public ActionResult Index()
@@ -90,9 +26,9 @@ namespace KladrTask.WebUI.Controllers
                 RegionCode = user.Address.Region,
                 LocalityCode = user.Address.Locality,
                 RoadCode = user.Address.Road,
-                HouseCode = user.Address.House,
                 Login = user.Login,
-                Password = user.Password
+                Password = user.Password,
+                Index = user.Address.Index
             };
             return View(currentUser);
         }
@@ -102,16 +38,28 @@ namespace KladrTask.WebUI.Controllers
         {
             var user = repository.GetUserByLogin(HttpContext.User.Identity.Name);
 
-            ViewData["login"] = user.Login;
-            ViewData["password"] = user.Password;
-            ViewData["firstName"] = user.FirstName;
-            ViewData["lastName"] = user.LastName;
-            ViewData["birthday"] = user.Birthday.ToShortDateString();
-            ViewData["regions"] = GetRegions(user.Address.RegionCode);
-            ViewData["localities"] = GetLocalities(user.Address.RegionCode, user.Address.LocalityCode);
-            ViewData["roads"] = GetRoads(user.Address.LocalityCode, user.Address.RoadCode);
-            ViewData["houses"] = GetHouses(user.Address.RoadCode, user.Address.House);
-            return View();
+            ViewData["regions"] = kladrRepositoryHelper.GetRegions(user.Address.RegionCode);
+            ViewData["localities"] = kladrRepositoryHelper.GetLocalities(user.Address.RegionCode, user.Address.LocalityCode);
+            ViewData["roads"] = kladrRepositoryHelper.GetStreets(user.Address.LocalityCode, user.Address.RoadCode);
+            ViewData["indexes"] = kladrRepositoryHelper.GetIndexes(user.Address.RegionCode, user.Address.LocalityCode,
+                user.Address.RoadCode);
+
+            return View(new UserViewModel()
+            {
+                Login = user.Login,
+                Password = user.Password,
+                Housing = user.Address.Housing, 
+                Index = user.Address.Index,
+                ApartamentNumber = user.Address.Apartment,
+                HouseNumber = user.Address.House, 
+                Birthday = user.Birthday,
+                FirstName = user.FirstName,
+                Id = user.Id, 
+                LastName = user.LastName,
+                LocalityCode = user.Address.LocalityCode,
+                RegionCode = user.Address.RegionCode, 
+                RoadCode = user.Address.RoadCode
+            });
         }
 
         [HttpPost]
@@ -127,10 +75,20 @@ namespace KladrTask.WebUI.Controllers
             var region = repository.GetRegionByCode(user.RegionCode);
             var locality = repository.GetRegionByCode(user.LocalityCode);
             var road = repository.GetRoadByCode(user.RoadCode);
-            var house = repository.GetHouseByCode(user.HouseCode.Split(',').First());
 
-
-            var address = new Address() { Region = region.Name, Locality = locality.Name, Road = road.Name, House = user.HouseCode.Split(',').Last(), Index = house.Index, RegionCode = region.Code, LocalityCode = locality.Code, HouseCode = house.Code, RoadCode = road.Code};
+            var address = new Address()
+            {
+                Region = region.Name,
+                Locality = locality.Name,
+                Road = road.Name,
+                Index = user.Index,
+                RegionCode = region.Code, 
+                LocalityCode = locality.Code, 
+                RoadCode = road.Code,
+                Apartment = user.ApartamentNumber,
+                Housing =  user.Housing,
+                House = user.HouseNumber
+            };
             address = repository.GetAddress(address);
 
             currentUser.Login = user.Login;

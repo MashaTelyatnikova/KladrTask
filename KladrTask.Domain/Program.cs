@@ -1,30 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using KladrTask.Domain.Concrete;
-using KladrTask.Domain.Entities;
 
 namespace KladrTask.Domain
 {
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            var rep = new DbKladrContext();
-            var houses = rep.Houses.ToList();
+            var kladr = new DbKladrRepository();
 
-            foreach (var house in houses)
+            foreach (var reg in kladr.Regions)
             {
-                var name = house.Name.Split(',').ToList();
-                house.Name = name[0];
-                for (var i = 1; i < name.Count; ++i)
-                {
-                    rep.Houses.Add(new House() { Code = house.Code, Name = name[i], Index = house.Index });
-                }
-                    Console.WriteLine("yes");
+                Console.WriteLine(reg.Code);
             }
-
-            rep.SaveChanges();
         }
     }
 }

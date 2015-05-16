@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KladrTask.Domain\KladrTask.Domain.csproj">
-      <Project>{0594beef-f431-4524-81e9-7473118e0a63}</Project>
+      <Project>{35ff2141-4200-439a-abe4-9e156c8e757c}</Project>
       <Name>KladrTask.Domain</Name>
     </ProjectReference>
   </ItemGroup>

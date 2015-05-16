@@ -68,7 +68,7 @@ namespace KladrTask.WebUI.Controllers
         {
             var user = repository.Users.First(u => u.Id == userId);
 
-            return string.Format("Получатель: {0}\nАдрес : {1},{2},{3},{4}\nИндекс : {5} \n\n{6}\n\n", user.FirstName + ' ' + user.LastName, user.Address.Region, user.Address.Locality, user.Address.Road, user.Address.House, user.Address.Index, text);
+            return string.Format("\n\n\n\n\n\n\n\n\n\n\n\nПолучатель: {0}\nАдрес : {1},{2},{3},{4},{5},{6}\nИндекс : {7} \n\n\n\n\n\n{8}", user.FirstName + ' ' + user.LastName, user.Address.Region, user.Address.Locality, user.Address.Road, user.Address.House, user.Address.Housing, user.Address.Apartment, user.Address.Index, text);
         }
 
         private UserListViewModel GetUserListModel(PostedUsers postedUsers)

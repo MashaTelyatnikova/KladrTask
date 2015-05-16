@@ -10,7 +10,6 @@ namespace KladrTask.Domain.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "KladrTask.Domain.Concrete.DbKladrContext";
         }
 
         protected override void Seed(KladrTask.Domain.Concrete.DbKladrContext context)

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using KladrTask.Domain.Abstract;
 using KladrTask.Domain.Entities;
 
@@ -14,6 +13,11 @@ namespace KladrTask.Domain.Concrete
         public IQueryable<Region> Regions { get { return kladrContext.Regions; } }
         public IQueryable<Road> Roads { get { return kladrContext.Roads; } }
         public IQueryable<House> Houses { get { return kladrContext.Houses; } }
+
+        public DbKladrRepository()
+        {
+            kladrContext = new DbKladrContext();
+        }
 
         public void AddUser(User user)
         {
@@ -63,11 +67,6 @@ namespace KladrTask.Domain.Concrete
         public bool ContainsUser(string userName)
         {
             return Users.Any(user => user.Login == userName);
-        }
-
-        public DbKladrRepository()
-        {
-            kladrContext = new DbKladrContext();
         }
     }
 }

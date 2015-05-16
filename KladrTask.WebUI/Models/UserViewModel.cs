@@ -29,10 +29,14 @@ namespace KladrTask.WebUI.Models
         [Required(ErrorMessage = "Пожалуйста, выберете населенный пункт")]
         public string LocalityCode { get; set; }
 
-        [Required(ErrorMessage = "Пожалуйста, выберете улицу")]
         public string RoadCode { get; set; }
 
-        [Required(ErrorMessage = "Пожалуйста, выберете дом")]
-        public string HouseCode { get; set; }
+        [Required(ErrorMessage = "Пожалуйста, ввеите номер дома")]
+        public string HouseNumber { get; set; }
+        public string Housing { get; set; }
+        public string ApartamentNumber { get; set; }
+
+        [Required(ErrorMessage = "Пожалуйста, выберете индекс")]
+        public string Index { get; set; }
     }
 }

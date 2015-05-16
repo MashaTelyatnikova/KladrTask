@@ -7,13 +7,13 @@ namespace KladrTask.Domain.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class StreetRenamed : IMigrationMetadata
+    public sealed partial class changed : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(StreetRenamed));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(changed));
         
         string IMigrationMetadata.Id
         {
-            get { return "201504041411527_StreetRenamed"; }
+            get { return "201505162030423_changed"; }
         }
         
         string IMigrationMetadata.Source

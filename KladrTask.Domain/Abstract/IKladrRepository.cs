@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using KladrTask.Domain.Entities;
 
 namespace KladrTask.Domain.Abstract
@@ -21,6 +18,7 @@ namespace KladrTask.Domain.Abstract
         Region GetRegionByCode(string code);
         Road GetRoadByCode(string code);
         House GetHouseByCode(string code);
+
 
         bool ContainsUser(string userName);
     }

@@ -96,10 +96,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="KladrRepositoryHelper.cs" />
     <Compile Include="Infrastructure\Abstract\IAuthProvider.cs" />
     <Compile Include="Infrastructure\Concrete\FormsAuthProvider.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
-    <Compile Include="ListExtensions.cs" />
     <Compile Include="Models\AddressViewModel.cs" />
     <Compile Include="Models\PostedUsers.cs" />
     <Compile Include="Models\UserListViewModel.cs" />
@@ -120,6 +120,8 @@
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\jquery.searchabledropdown-1.0.8.min.js" />
+    <Content Include="Scripts\jquery.searchabledropdown-1.0.8.src.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -150,7 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KladrTask.Domain\KladrTask.Domain.csproj">
-      <Project>{0594beef-f431-4524-81e9-7473118e0a63}</Project>
+      <Project>{35ff2141-4200-439a-abe4-9e156c8e757c}</Project>
       <Name>KladrTask.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\PrefixTree\PrefixTree.csproj">

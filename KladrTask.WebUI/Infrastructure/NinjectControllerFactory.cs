@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Ninject;
-using System.Configuration;
+using System.Web.Routing;
 using KladrTask.Domain.Abstract;
 using KladrTask.Domain.Concrete;
 using KladrTask.WebUI.Infrastructure.Abstract;
 using KladrTask.WebUI.Infrastructure.Concrete;
+using Ninject;
 
 namespace KladrTask.WebUI.Infrastructure
 {
@@ -22,7 +19,7 @@ namespace KladrTask.WebUI.Infrastructure
             AddBindings();
         }
 
-        protected override IController GetControllerInstance(System.Web.Routing.RequestContext requestContext, Type controllerType)
+        protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
             return controllerType == null ? null : (IController)ninjectKernel.Get(controllerType);
         }
